@@ -14,7 +14,7 @@ async function bootstrap() {
   } else {
     app.use(cookieParser(cookieSecretKey));
   }
-
+  app.setGlobalPrefix('api');
   await app.listen(port || 8000);
   return port;
 }
