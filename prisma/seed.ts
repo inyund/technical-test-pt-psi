@@ -11,7 +11,7 @@ async function main() {
     },
     {
       name: 'Juli',
-      email: 'Sammny@mail.com',
+      email: 'Sammy@mail.com',
       phone: '0987654321',
     },
     {
