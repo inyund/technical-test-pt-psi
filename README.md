@@ -27,6 +27,12 @@ git clone https://github.com/inyund/technical-test-pt-psi-be.git
 cd technical-test-pt-psi-be
 ```
 
+2. Install dependencies :
+
+```bash
+yarn install
+```
+
 ## Configuration
 
 1. Create database in PostgreSQL
