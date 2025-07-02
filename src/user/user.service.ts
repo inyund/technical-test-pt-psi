@@ -1,6 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { GetUserListResponseDTO } from './dto/user.dto';
+import {
+  GetUserListResponseDTO,
+  RandomUserApiResponseDTO,
+  RandomUserQueryDTO,
+  RandomUserResponseDTO,
+} from './dto/user.dto';
 
 @Injectable()
 export class UserService {
@@ -23,5 +28,38 @@ export class UserService {
         company_name: company.company_name,
       })),
     );
+  }
+
+  async getRandomUser(
+    queries: RandomUserQueryDTO,
+  ): Promise<RandomUserResponseDTO[]> {
+    const { results, page } = queries;
+    const randomUsersFetch = await fetch(
+      `https://randomuser.me/api?results=${results}&page=${page}`,
+    );
+    const { results: randomUsers }: RandomUserApiResponseDTO =
+      await randomUsersFetch.json();
+
+    return randomUsers.map((user) => {
+      return {
+        name: `${user.name.title}, ${user.name.first} ${user.name.last}`,
+        location: [
+          user.location.street.number,
+          user.location.street.name,
+          user.location.city,
+          user.location.state,
+          user.location.country,
+        ].join(', '),
+        email: user.email,
+        age: user.registered.age,
+        phone: user.phone,
+        cell: user.cell,
+        picture: [
+          user.picture.large,
+          user.picture.medium,
+          user.picture.thumbnail,
+        ],
+      };
+    });
   }
 }
