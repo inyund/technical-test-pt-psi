@@ -23,7 +23,7 @@ export class UserController {
   }
 
   @ApiResponse({ status: 200, type: RandomUserResponseDTO })
-  @Get('/random-user')
+  @Get('/random-users')
   async getRandomUser(
     @Query() queries: RandomUserQueryDTO,
   ): Promise<CommonResponseDTO<RandomUserResponseDTO[]>> {
