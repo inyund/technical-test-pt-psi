@@ -52,7 +52,7 @@ DATABASE_URL="postgresql://${DATABASE_USER}:${DATABASE_PASSWORD}@${DATABASE_HOST
 1. Run database migrations :
 
 ```bash
-  yarn prisma migrate dev
+yarn prisma migrate dev
 ```
 
 2. Seed initial data ;
@@ -80,7 +80,7 @@ http://localhost:8080/api-docs#/
 
 Testing the auth feature:
 
-1. Access http://localhost:8080/auth/google on your browser
+1. Access http://localhost:8080/api/auth/google on your browser
 2. Login using google credential
 
 the authentication should redirect you back to endpoint profile and giving the desired response.
