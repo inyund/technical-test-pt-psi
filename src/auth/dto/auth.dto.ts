@@ -13,7 +13,8 @@ export class ValidateUserReponseDTO {
 export class DecodedTokenDTO {
   sub: string;
   username: string;
-  exp_session: number;
+  exp: number;
+  iat: number;
 }
 
 export class ValidateJWTPayloadDTO {

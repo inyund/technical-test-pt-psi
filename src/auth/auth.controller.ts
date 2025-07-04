@@ -45,11 +45,12 @@ export class AuthController {
 
     const token: string = req.cookies.access_token;
     const decoded = this.authService.decodeToken(token);
+    console.log('🐰 ~ AuthController ~ getProfile ~ decoded:', decoded);
 
     return {
       id: user?.id,
       username: user?.email,
-      'exp_session/iat': `${decoded.exp_session}`,
+      'exp_session/iat': `${decoded.exp}`,
     };
   }
 

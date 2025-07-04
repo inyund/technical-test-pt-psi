@@ -19,12 +19,11 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
   }
 
   validate(
-    requestt,
+    request,
     accessToken: string,
     refreshToken: string,
     profile: Profile,
   ) {
-    console.log(profile, '<<<');
     const { name, emails } = profile;
 
     if (!emails || emails.length === 0) {
